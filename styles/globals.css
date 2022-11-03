@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  @apply font-helveticaNow;
+  @apply font-normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer base {
+  h1 {
+    @apply text-7xl;
+    @apply font-helveticaNowBold;
+  }
+
+  h2 {
+    @apply font-helveticaNowBold;
+    @apply text-2xl;
+    @apply sm:text-3xl;
+    @apply mx-8;
+    @apply sm:mx-0;
+  }
+
+  h3 {
+    @apply font-helveticaNowMedium;
+    @apply text-3xl;
+  }
+  h3 + h3 {
+    @apply mb-8;
+  }
+  h4 {
+    @apply font-helveticaNowMedium;
+    @apply text-2xl;
+  }
+  span,a {
+    @apply text-base;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply mt-1;
+  }
+  a {
+    color: #2563EB;
+  }
+  p {
+    @apply text-lg;
+    @apply sm:text-2xl;
+    @apply sm:my-8;
+    @apply my-4;
+    @apply text-left;
+  }
+  p > a {
+    font-size: inherit;
+  }
+
+  blockquote > p {
+    @apply font-frankRuhlLibre;
+    @apply text-2xl;
+    @apply sm:text-5xl;
+    @apply text-justify;
+    @apply tracking-[-0.02em];
+    @apply mb-6;
+    @apply leading-[145%];
+  }
+  blockquote > footer {
+    @apply font-helveticaNowBold;
+    @apply text-lg;
+    @apply sm:text-2xl;
+  }
+
+
+}
+
+.light1, .light1 > img, .light1 > picture > img {
+  background-color: var(--color-light1);
+  background-blend-mode: darken;
+}
+
+.light2 {
+  background-color: var(--color-light2);
+}
+
+.light2-50 {
+  background-color: var(--color-light2-50);
+}
+
+.wisdom {
+  background-color: var(--color-wisdom);
+  color: #ffffff;
+}
+
+.love {
+  background-color: var(--color-love);
+}
+
+.peace {
+  background-color: var(--color-peace);
+  background-blend-mode: multiply;
+}
+
+.strength {
+  background-color: var(--color-strength);
+}
+
+.grace {
+  background-color: var(--color-grace);
+}
+
+.none {
+  background-position: center center;
+}
+
+.none  h3 {
+ color: white;
+}
+
+.child-p-justify > p {
+  @apply text-justify;
+}
+
+.child-p-center > p {
+  @apply text-center;
+  @apply my-0;
+}
+
+details + h1 {
+  @apply sm:text-5xl;
+  @apply text-2xl;
+}

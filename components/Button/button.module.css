@@ -1,0 +1,49 @@
+.button {
+    @apply my-2;
+    @apply font-mulish;
+    @apply font-bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:global(.primary) {
+    @apply h-12;
+    @apply rounded-2xl;
+    width: 302px;
+    background: #000000;
+    color: white;
+
+}
+
+.button:global(.secondary) {
+    @apply h-12;
+    @apply rounded-2xl;
+    width: 100%;
+    max-width: 477px;
+    color: white;
+    background-color: var(--color-grace);
+}
+
+.button:global(.tertiary) {
+    @apply h-12;
+    @apply rounded-2xl;
+    @apply border;
+    @apply border-black;
+    @apply text-black;
+    width: 302px;
+
+}
+
+.button:global(.external) {
+    @apply h-12;
+    @apply rounded-2xl;
+    color: white;
+    background-color: #3C7E6B;
+    width: 302px;
+
+}
+
+h2 + .button {
+    @apply mt-6;
+}

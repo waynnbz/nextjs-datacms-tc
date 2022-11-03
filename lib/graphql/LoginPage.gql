@@ -1,0 +1,93 @@
+#import "./responsiveImageFragment.gql"
+#import "./structuredTextFragment.gql"
+
+query LoginPage {
+  common {
+    light1 {
+      hex
+    }
+    light2 {
+      hex
+      red
+      green
+      blue
+    }
+    grace {
+      hex
+    }
+    wisdom {
+      hex
+    }
+    confidence {
+      hex
+    }
+    peace {
+      hex
+    }
+    love {
+      hex
+    }
+    strength {
+      hex
+    }
+  }
+  loginPage {
+    content {
+      blocks {
+        __typename
+        ... on ImageRecord {
+          __typename
+          id
+          image {
+            mimeType
+            url
+            responsiveImage(imgixParams: {auto: format}) {
+              ...responsiveImageFragment
+            }
+            alt
+          }
+        }
+      }
+      links
+      value
+    }
+    buttonIcon
+    buttonText
+    buttonType
+    header {
+      ... on HeroRecord {
+        __typename
+        id
+        leftImage {
+          id
+          responsiveImage(imgixParams: {auto: compress}) {
+            ...responsiveImageFragment
+          }
+        }
+        centerImages {
+          id
+          responsiveImage(imgixParams: {auto: compress}) {
+            ...responsiveImageFragment
+          }
+        }
+        rightImage {
+          id
+          responsiveImage(imgixParams: {auto: compress}) {
+            ...responsiveImageFragment
+          }
+        }
+        backgroundColor
+        backgroundImage {
+          id
+          responsiveImage(imgixParams: {auto: compress}) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on NavbarRecord {
+        __typename
+        id
+      }
+    }
+  }
+}

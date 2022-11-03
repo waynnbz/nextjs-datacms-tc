@@ -1,0 +1,114 @@
+#import "./responsiveImageFragment.gql"
+#import "./structuredTextFragment.gql"
+
+query LeaderPage {
+  common {
+    light1 {
+      hex
+    }
+    light2 {
+      hex
+      red
+      green
+      blue
+    }
+    grace {
+      hex
+    }
+    wisdom {
+      hex
+    }
+    confidence {
+      hex
+    }
+    peace {
+      hex
+    }
+    love {
+      hex
+    }
+    strength {
+      hex
+    }
+  }
+  leaderPage {
+    header {
+      ... on HeroRecord {
+        __typename
+        id
+        leftImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        centerImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        rightImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        backgroundColor
+        backgroundImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on NavbarRecord {
+        __typename
+        id
+        staticImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on SubnavRecord {
+        __typename
+        id
+        navItems {
+          id
+          title
+          link
+        }
+      }
+    }
+    content {
+      __typename
+    }
+
+    footer {
+      ... on SectionRecord {
+        __typename
+        id
+        content {
+          blocks {
+            __typename
+          }
+          links
+          value
+        }
+        backgroundColor
+      }
+      ... on FooterRecord {
+        __typename
+        id
+        staticImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+    }
+  }
+}

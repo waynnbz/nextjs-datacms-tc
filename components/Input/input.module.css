@@ -1,0 +1,27 @@
+.input {
+    @apply w-full;
+    @apply text-left;
+    @apply my-4;
+}
+
+.input input {
+    @apply px-4;
+    @apply py-2;
+    @apply rounded-3xl;
+    @apply w-full;
+    @apply text-left;
+    border: 1px solid #000000;
+    height: 48px;
+}
+
+.input label {
+    @apply mx-4;
+    @apply font-mulish;
+    @apply text-sm;
+}
+
+.input label span {
+    color: #ef4444;
+    @apply font-mulish;
+    @apply text-sm;
+}

@@ -1,0 +1,193 @@
+#import "./responsiveImageFragment.gql"
+#import "./structuredTextFragment.gql"
+
+query CurriculumPage {
+  common {
+    light1 {
+      hex
+    }
+    light2 {
+      hex
+      red
+      green
+      blue
+    }
+    grace {
+      hex
+    }
+    wisdom {
+      hex
+    }
+    confidence {
+      hex
+    }
+    peace {
+      hex
+    }
+    love {
+      hex
+    }
+    strength {
+      hex
+    }
+  }
+  curriculumPage {
+    header {
+      ... on HeroRecord {
+        __typename
+        id
+        leftImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        centerImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        rightImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+        backgroundColor
+        backgroundImage {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on NavbarRecord {
+        __typename
+        id
+        staticImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      ... on SubnavRecord {
+        __typename
+        id
+        navItems {
+          id
+          title
+          link
+        }
+      }
+    }
+    content {
+      __typename
+      id
+      backgroundImage {
+        responsiveImage(imgixParams: { auto: compress }) {
+          ...responsiveImageFragment
+        }
+      }
+      backgroundColor
+      content {
+        blocks {
+          __typename
+          ... on ListenRecord {
+            __typename
+            id
+            title
+            image {
+              responsiveImage(imgixParams: { auto: format }) {
+                ...responsiveImageFragment
+              }
+            }
+            button {
+              __typename
+              ... on ButtonRecord {
+                __typename
+                id
+                link
+                style
+                title
+                trailingIcon
+              }
+            }
+          }
+          ... on TeachingRecord {
+            __typename
+            id
+            title
+            text
+            wordCards {
+              responsiveImage(imgixParams: { auto: format }) {
+                ...responsiveImageFragment
+              }
+            }
+          }
+
+          ... on BookRecord {
+            __typename
+            id
+            title
+            text
+            button {
+              ... on ButtonRecord {
+                __typename
+                id
+                link
+                style
+                title
+                trailingIcon
+              }
+            }
+            downloadList {
+              ... on DownloadItemRecord {
+                __typename
+                id
+                title
+                button {
+                  ... on ButtonRecord {
+                    __typename
+                    id
+                    link
+                    style
+                    title
+                    trailingIcon
+                  }
+                }
+              }
+            }
+          }
+        }
+        links
+        value
+      }
+    }
+    footer {
+      ... on SectionRecord {
+        __typename
+        id
+        content {
+          blocks {
+            __typename
+          }
+          links
+          value
+        }
+        backgroundColor
+      }
+      ... on FooterRecord {
+        __typename
+        id
+        staticImages {
+          id
+          responsiveImage(imgixParams: { auto: compress }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+    }
+  }
+}

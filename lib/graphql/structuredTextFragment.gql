@@ -1,0 +1,74 @@
+fragment structuredTextFragment on StructuredTextRecord {
+    __typename
+    id
+    content {
+        blocks {
+            __typename
+            ... on ButtonRecord {
+                __typename
+                id
+                link
+                style
+                title
+            }
+            ... on FaqQuestionRecord {
+                __typename
+                id
+                question
+                answer {
+                    blocks
+                    links
+                    value
+                }
+            }
+            ... on ImageRecord {
+                __typename
+                id
+                image {
+                    mimeType
+                    url
+                    responsiveImage(imgixParams: {auto: format}) {
+                        ...responsiveImageFragment
+                    }
+                    alt
+                }
+            }
+            ... on TwoColumnRecord {
+                __typename
+                id
+                content {
+                    ... on ImageRecord {
+                        __typename
+                        id
+                        image {
+                            responsiveImage(imgixParams: {auto: format}) {
+                                ...responsiveImageFragment
+                            }
+                        }
+                    }
+                }
+            }
+            ... on VideoThumbnailRecord {
+                __typename
+                id
+                image {
+                    responsiveImage(imgixParams: {auto: format}) {
+                        ...responsiveImageFragment
+                    }
+                }
+            }
+            ... on WordCarouselRecord {
+                __typename
+                id
+                words {
+                    responsiveImage(imgixParams: {auto: format}) {
+                        ...responsiveImageFragment
+                    }
+                }
+            }
+        }
+        links
+        value
+    }
+}
+
